@@ -1,3 +1,4 @@
+import { blue, red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
 export const theme = createTheme({
@@ -14,4 +15,24 @@ export const theme = createTheme({
     typography: {
         fontFamily: "Shabnam, Roboto",
     },
+    /*
+    components: {
+        MuiButton: {
+            variants: [
+                {
+                    props: { variant: 'dashed' },
+                    style: {
+                        textTransform: 'none',
+                        border: `2px dashed ${blue[500]}`,
+                    },
+                },
+                {
+                    props: { variant: 'dashed', color: 'secondary' },
+                    style: {
+                        border: `4px dashed ${red[500]}`,
+                    },
+                },
+            ],
+        },
+    } */
 });
