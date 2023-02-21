@@ -20,7 +20,7 @@ import {
 } from "@mui/icons-material";
 import { grey } from "@mui/material/colors";
 
-function DrawerContent({ value, handleChange }) {
+function DrawerContent({ value, handleChange, setDrawerOpen }) {
     const tabProps = (index) => {
         return {
             id: `sidebar-tab${index}`,
@@ -59,19 +59,20 @@ function DrawerContent({ value, handleChange }) {
                 allowScrollButtonsMobile
                 value={value}
                 onChange={handleChange}
+                onClick={() => setDrawerOpen(false)}
             >
                 <Tab
                     {...tabProps(0)}
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                     label="صفحه اصلی"
-                    // label={
-                    //     <div>
-                    //         <Typography variant="subtitle2" color={"white"}>
-                    //             <HomeRounded sx={{ verticalAlign: "middle", mr: 1 }} />
-                    //             صفحه اصلی
-                    //         </Typography>
-                    //     </div>
-                    // }
                     icon={<HomeRounded />}
                     iconPosition={"start"}
                 />
@@ -80,35 +81,75 @@ function DrawerContent({ value, handleChange }) {
                     label="درباره من"
                     icon={<FaceRounded />}
                     iconPosition="start"
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                 />
                 <Tab
                     {...tabProps(2)}
                     label="رزومه من"
                     icon={<TextSnippetRounded />}
                     iconPosition="start"
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                 />
                 <Tab
                     {...tabProps(3)}
                     label="نمونه کارها"
                     icon={<TerminalRounded />}
                     iconPosition="start"
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                 />
                 <Tab
                     {...tabProps(4)}
                     label="نظرات دانشجویان"
                     icon={<MessageRounded />}
                     iconPosition="start"
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                 />
                 <Tab
                     {...tabProps(5)}
                     label="ارتباط با من"
                     icon={<ConnectWithoutContactRounded />}
                     iconPosition="start"
-                    sx={{ color: "whitesmoke" }}
+                    sx={{
+                        backgroundColor: grey[800],
+                        borderRadius: 2,
+                        my: 0.5,
+                        mx: 1,
+                        color: "whitesmoke", "&.MuiTab-root": {
+                            minHeight: 50
+                        }
+                    }}
                 />
             </Tabs>
 
