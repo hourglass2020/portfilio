@@ -43,6 +43,13 @@ const Sidebar = ({ value, handleChange }) => {
                 "& .MuiDrawer-paper": {
                     width: 310,
                     backgroundColor: grey[900],
+                },
+                display: {
+                    xs: "block",
+                    sm: "block",
+                    md: "none",
+                    lg: "none",
+                    xl: "none"
                 }
             }}>
                 <DrawerContent value={value} handleChange={handleChange} />

@@ -30,13 +30,20 @@ function DrawerContent({ value, handleChange }) {
 
     return (
         <Box sx={{ justifyContent: "center", textAlign: "center", mt: 2 }}>
-            <Hidden mdDown>
-                <Avatar
-                    src={require("../../assets/avatar.jpg")}
-                    variant="rounded"
-                    sx={{ height: 200, width: 200, margin: "0 auto" }}
-                />
-            </Hidden>
+            <Avatar
+                src={require("../../assets/avatar.jpg")}
+                variant="rounded"
+                sx={{
+                    height: 200, width: 200, margin: "0 auto",
+                    display: {
+                        lg: 'block',
+                        md: 'block',
+                        sm: 'none',
+                        xs: "none",
+                        xl: 'block'
+                    }
+                }}
+            />
             <Typography variant="h6" color={"whitesmoke"}>
                 پوریا اقدم پور
             </Typography>
