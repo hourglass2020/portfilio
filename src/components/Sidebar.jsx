@@ -20,7 +20,15 @@ import {
     CopyrightRounded
 } from "@mui/icons-material";
 
-const Sidebar = () => {
+const Sidebar = ({ value, handleChange }) => {
+
+    const tabProps = (index) => {
+        return {
+            id: `sidebar-tab${index}`,
+            "aria-controls": `tabpanel-${index}`
+        }
+    }
+
     return (
         <Grid
             xs={0}
@@ -28,7 +36,10 @@ const Sidebar = () => {
             md={3}
             lg={2}
             xl={2}
-            sx={{ backgroundColor: grey[900] }}
+            sx={{
+                backgroundColor: grey[900],
+                //  height: "100vh", overflowY: "auto"
+            }}
         >
             <Box sx={{ justifyContent: "center", textAlign: "center", mt: 2 }}>
                 <Hidden mdDown>
@@ -51,11 +62,13 @@ const Sidebar = () => {
                     variant="scrollable"
                     scrollButtons="auto"
                     allowScrollButtonsMobile
+                    value={value}
+                    onChange={handleChange}
                 >
                     <Tab
+                        {...tabProps(0)}
                         sx={{ color: "whitesmoke" }}
                         label="صفحه اصلی"
-
                         // label={
                         //     <div>
                         //         <Typography variant="subtitle2" color={"white"}>
@@ -68,30 +81,35 @@ const Sidebar = () => {
                         iconPosition={"start"}
                     />
                     <Tab
+                        {...tabProps(1)}
                         label="درباره من"
                         icon={<FaceRounded />}
                         iconPosition="start"
                         sx={{ color: "whitesmoke" }}
                     />
                     <Tab
+                        {...tabProps(2)}
                         label="رزومه من"
                         icon={<TextSnippetRounded />}
                         iconPosition="start"
                         sx={{ color: "whitesmoke" }}
                     />
                     <Tab
+                        {...tabProps(3)}
                         label="نمونه کارها"
                         icon={<TerminalRounded />}
                         iconPosition="start"
                         sx={{ color: "whitesmoke" }}
                     />
                     <Tab
+                        {...tabProps(4)}
                         label="نظرات دانشجویان"
                         icon={<MessageRounded />}
                         iconPosition="start"
                         sx={{ color: "whitesmoke" }}
                     />
                     <Tab
+                        {...tabProps(5)}
                         label="ارتباط با من"
                         icon={<ConnectWithoutContactRounded />}
                         iconPosition="start"
