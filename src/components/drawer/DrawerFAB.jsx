@@ -18,6 +18,7 @@ function DrawerFAB() {
                     lg: "none",
                     xl: "none",
                 },
+                position: 'absolute'
             }}
         >
             <Fab

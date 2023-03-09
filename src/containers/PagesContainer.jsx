@@ -2,7 +2,7 @@ import React from 'react'
 import Grid from '@mui/material/Unstable_Grid2';
 import { Typography } from '@mui/material';
 
-function ContentContainer({ children }) {
+function PagesContainer({ children }) {
     return (
         <Grid
             xs={12}
@@ -12,12 +12,9 @@ function ContentContainer({ children }) {
             xl={10}
             sx={{ backgroundColor: "secondary.main" }}
         >
-            <Typography textAlign={"center"} variant="h5">
-                Main Content
-            </Typography>
             {children}
         </Grid>
     )
 }
 
-export default ContentContainer
+export default PagesContainer

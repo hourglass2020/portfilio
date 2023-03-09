@@ -1,6 +1,6 @@
-import { Box, Typography } from '@mui/material'
+import { Box } from '@mui/material'
 
-function TabPanel({ children, value, index, others }) {
+function Page({ children, value, index, others }) {
     return (
         <div
             role={"tabpanel"}
@@ -10,12 +10,12 @@ function TabPanel({ children, value, index, others }) {
             {...others}
         >
             {value === index && (
-                <Box sx={{ p: 3 }}>
-                    <Typography>{children}</Typography>
+                <Box sx={{ height: '100vh', overflow: 'hidden' }}>
+                    {children}
                 </Box>
             )}
         </div>
     )
 }
 
-export default TabPanel
+export default Page;

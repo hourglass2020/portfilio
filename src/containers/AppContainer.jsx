@@ -1,11 +1,12 @@
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 
 import MainLayout from "../layouts/MainLayout";
 import { Sidebar } from "../components/sidebar";
-import ContentContainer from "./ContentContainer";
-import TabPanel from "../components/TabPanel";
+import PagesContainer from "./PagesContainer";
+import Page from "../pages/components/Page";
 import SidebarContainer from "./SidebarContainer";
+import { DrawerFAB } from "../components/drawer";
 
 import MainContext from "../context";
 
@@ -30,56 +31,68 @@ function AppContainer() {
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
-        <ContentContainer>
-          <TabPanel value={pageNumber} index={0}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
+        <DrawerFAB />
+        <PagesContainer>
+          <Page value={pageNumber} index={0}>
+
+            <Box
+              sx={{
+                backgroundImage: `url(${require("../assets/bg02.jpg")})`,
+                height: "100vh",
+                backgroundPosition: "center",
+                backgroundRepeat: "no-repeat",
+                backgroundSize: "cover",
+              }}
             >
-              صفحه اصلی
-            </Typography>
-          </TabPanel>
-          <TabPanel value={pageNumber} index={1}>
+              <Typography
+                variant="h4"
+                sx={{ textAlign: "center", color: "white" }}
+              >
+                صفحه اصلی
+              </Typography>
+            </Box>
+          </Page>
+          <Page value={pageNumber} index={1}>
             <Typography
               variant="h4"
               sx={{ textAlign: "center", color: "white" }}
             >
               درباره من
             </Typography>
-          </TabPanel>
-          <TabPanel value={pageNumber} index={2}>
+          </Page>
+          <Page value={pageNumber} index={2}>
             <Typography
               variant="h4"
               sx={{ textAlign: "center", color: "white" }}
             >
               رزومه من
             </Typography>
-          </TabPanel>
-          <TabPanel value={pageNumber} index={3}>
+          </Page>
+          <Page value={pageNumber} index={3}>
             <Typography
               variant="h4"
               sx={{ textAlign: "center", color: "white" }}
             >
               نمونه کارها
             </Typography>
-          </TabPanel>
-          <TabPanel value={pageNumber} index={4}>
+          </Page>
+          <Page value={pageNumber} index={4}>
             <Typography
               variant="h4"
               sx={{ textAlign: "center", color: "white" }}
             >
               نظرات دانشجویان
             </Typography>
-          </TabPanel>
-          <TabPanel value={pageNumber} index={5}>
+          </Page>
+          <Page value={pageNumber} index={5}>
             <Typography
               variant="h4"
               sx={{ textAlign: "center", color: "white" }}
             >
               ارتباط با من
             </Typography>
-          </TabPanel>
-        </ContentContainer>
+          </Page>
+        </PagesContainer>
       </MainLayout>
     </MainContext.Provider>
   );

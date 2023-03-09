@@ -12,6 +12,9 @@ function SidebarContainer({ children }) {
             xl={2}
             sx={{
                 backgroundColor: grey[900],
+                height: '100vh',
+                overflow: 'auto',
+                overflowX: 'hidden'
             }}
         >
             {children}
