@@ -19,9 +19,6 @@ function MainLayout({ children }) {
         <CacheProvider value={cacheRTL}>
             <ThemeProvider theme={theme}>
                 <HelmetProvider>
-                    <Helmet>
-                        <title>وبسایت شخصی پوریا اقدم پور</title>
-                    </Helmet>
                     <Grid container sx={{ height: "100vh" }}>
                         {children}
                     </Grid>

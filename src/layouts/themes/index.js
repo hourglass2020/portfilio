@@ -13,7 +13,7 @@ export const theme = createTheme({
     },
     direction: "rtl",
     typography: {
-        fontFamily: "Shabnam, Roboto",
+        fontFamily: "Tanha, Roboto",
     },
     /*
     components: {

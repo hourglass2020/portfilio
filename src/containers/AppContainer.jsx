@@ -9,6 +9,8 @@ import SidebarContainer from "./SidebarContainer";
 import { DrawerFAB } from "../components/drawer";
 
 import MainContext from "../context";
+import SwipeableViews from "react-swipeable-views";
+import { About, Home } from "../pages";
 
 function AppContainer() {
   const [pageNumber, setPageNumber] = useState(0);
@@ -33,65 +35,47 @@ function AppContainer() {
         </SidebarContainer>
         <DrawerFAB />
         <PagesContainer>
-          <Page value={pageNumber} index={0}>
+          <SwipeableViews index={pageNumber} onChangeIndex={handlePageNumber}>
 
-            <Box
-              sx={{
-                backgroundImage: `url(${require("../assets/bg02.jpg")})`,
-                height: "100vh",
-                backgroundPosition: "center",
-                backgroundRepeat: "no-repeat",
-                backgroundSize: "cover",
-              }}
-            >
+            <Page value={pageNumber} index={0}>
+              <Home />
+            </Page>
+            <Page value={pageNumber} index={1}>
+              <About />
+            </Page>
+            <Page value={pageNumber} index={2}>
               <Typography
                 variant="h4"
                 sx={{ textAlign: "center", color: "white" }}
               >
-                صفحه اصلی
+                رزومه من
               </Typography>
-            </Box>
-          </Page>
-          <Page value={pageNumber} index={1}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
-            >
-              درباره من
-            </Typography>
-          </Page>
-          <Page value={pageNumber} index={2}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
-            >
-              رزومه من
-            </Typography>
-          </Page>
-          <Page value={pageNumber} index={3}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
-            >
-              نمونه کارها
-            </Typography>
-          </Page>
-          <Page value={pageNumber} index={4}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
-            >
-              نظرات دانشجویان
-            </Typography>
-          </Page>
-          <Page value={pageNumber} index={5}>
-            <Typography
-              variant="h4"
-              sx={{ textAlign: "center", color: "white" }}
-            >
-              ارتباط با من
-            </Typography>
-          </Page>
+            </Page>
+            <Page value={pageNumber} index={3}>
+              <Typography
+                variant="h4"
+                sx={{ textAlign: "center", color: "white" }}
+              >
+                نمونه کارها
+              </Typography>
+            </Page>
+            <Page value={pageNumber} index={4}>
+              <Typography
+                variant="h4"
+                sx={{ textAlign: "center", color: "white" }}
+              >
+                نظرات دانشجویان
+              </Typography>
+            </Page>
+            <Page value={pageNumber} index={5}>
+              <Typography
+                variant="h4"
+                sx={{ textAlign: "center", color: "white" }}
+              >
+                ارتباط با من
+              </Typography>
+            </Page>
+          </SwipeableViews>
         </PagesContainer>
       </MainLayout>
     </MainContext.Provider>
