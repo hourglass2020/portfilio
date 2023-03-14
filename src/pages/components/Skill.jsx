@@ -13,7 +13,7 @@ function Skill({ icon, color, name, value }) {
                 }}
             >
                 <Chip
-                    color="primary"
+                    color={color}
                     icon={icon}
                     label={name}
                     sx={{ color: "#000", p: 3 }}

@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-
 import {
-    Box,
     Typography,
     Card,
     CardContent,
     Divider,
     Chip,
     Avatar,
+    Box,
+    Tooltip,
 } from "@mui/material";
 import Grid from "@mui/material/Unstable_Grid2";
 
@@ -17,6 +17,7 @@ import DevInfo from "./components/DevInfo";
 import Skill from "./components/Skill";
 import { devSkills } from "../constants/skills";
 import { Helmet } from "react-helmet-async";
+import { devWorkInfo } from "../constants/details";
 
 function About() {
     const [javascript, setJavascript] = useState(0);
@@ -69,10 +70,33 @@ function About() {
                                 icon={<CodeRounded />}
                             />
                         </Divider>
-                        <DevInfo>نام و نام خانوادگی: پوریا اقدم پور</DevInfo>
-                        <DevInfo>سن: 22</DevInfo>
-                        <DevInfo>شهر: تهران</DevInfo>
-                        <DevInfo>pouria.aghdampour@gmail.com :آدرس ایمیل</DevInfo>
+                        <Grid container>
+                            <Grid sm={4} md={3} sx={{
+                                display: { xs: "none", sm: "block" }
+                            }}>
+                                {
+                                    devWorkInfo.map((item, index) => (
+                                        <Box key={index} component="div" sx={{ width: 1, mb: 2 }}>
+                                            <Tooltip title={item.tooltipTitle} placement="right" arrow>
+
+                                                <Chip icon={item.icon} label={
+                                                    <Typography variant="body1" color="whitesmoke">
+                                                        {/* <CountUp start={0} end={item.total} duration={2} /> */}
+                                                        {item.total}
+                                                    </Typography>
+                                                } sx={{ p: 2, bgcolor: item.color, width: 1 }} />
+                                            </Tooltip>
+                                        </Box>
+                                    ))
+                                }
+                            </Grid>
+                            <Grid xs={12} sm={8} md={9}>
+                                <DevInfo>نام و نام خانوادگی: پوریا اقدم پور</DevInfo>
+                                <DevInfo>سن: 22</DevInfo>
+                                <DevInfo>شهر: تهران</DevInfo>
+                                <DevInfo>pouria.aghdampour@gmail.com :آدرس ایمیل</DevInfo>
+                            </Grid>
+                        </Grid>
                     </Grid>
                     <Grid xs={0} md={4} container justifyContent={"center"}>
                         <Avatar
