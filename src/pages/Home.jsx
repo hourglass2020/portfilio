@@ -57,7 +57,7 @@ function Home() {
     }, []);
 
     const particleLoaded = useCallback(async container => {
-        await console.log(container);
+        // await console.log(container);
     }, []);
 
 

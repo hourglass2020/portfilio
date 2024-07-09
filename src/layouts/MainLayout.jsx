@@ -7,14 +7,16 @@ import { prefixer } from "stylis";
 
 import Grid from "@mui/material/Unstable_Grid2";
 
-import { theme } from "./themes";
+import { darkTheme, lightTheme } from "./themes";
 
 const cacheRTL = createCache({
     key: "muirtl",
     stylisPlugins: [prefixer, rtlPlugin],
 });
 
-function MainLayout({ children }) {
+function MainLayout({ children, mode }) {
+    const theme = mode === "dark" ? darkTheme : lightTheme;
+
     return (
         <CacheProvider value={cacheRTL}>
             <ThemeProvider theme={theme}>

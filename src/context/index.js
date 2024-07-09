@@ -5,5 +5,6 @@ export default createContext({
     pageNumber: 0,
     handlePageNumber: () => { },
     drawerOpen: false,
-    setDrawerOpen: () => { }
+    setDrawerOpen: () => { },
+    handleThemeChange: () => { }
 })

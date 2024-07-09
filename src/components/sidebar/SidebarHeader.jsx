@@ -6,10 +6,12 @@ import { RandomReveal } from "react-random-reveal";
 import { persianAlphabets } from "../../constants/alphabets";
 
 import { GitHub, Telegram, Instagram, WhatsApp } from "@mui/icons-material";
+import ThemeFAB from "../ThemeFAB";
 
 function SidebarHeader() {
     return (
         <>
+            <ThemeFAB />
             <Avatar
                 src={avatar}
                 variant="rounded"

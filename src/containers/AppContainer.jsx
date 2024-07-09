@@ -12,14 +12,22 @@ import MainContext from "../context";
 import SwipeableViews from "react-swipeable-views";
 import { About, Home, Resume } from "../pages";
 import Courses from "../pages/Courses";
+import Comments from "../pages/Comments";
+import Contact from "../pages/Contact";
 
 function AppContainer() {
   const theme = useTheme();
   const isMdUp = useMediaQuery(theme.breakpoints.up("md"));
+  const preferedDarkMode = useMediaQuery(`(prefers-color-scheme: dark)`)
 
-
+  const [mode, setMode] = useState();
   const [pageNumber, setPageNumber] = useState(0);
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+
+  useEffect(() => {
+    setMode(preferedDarkMode === "dark" ? "dark" : "light");
+  }, []);
 
   useEffect(() => {
     if (isMdUp) {
@@ -31,16 +39,21 @@ function AppContainer() {
     setPageNumber(newValue);
   };
 
+  const handleThemeChange = () => {
+    setMode(prevMode => prevMode === "light" ? "dark" : "light");
+  };
+
   return (
     <MainContext.Provider
       value={{
         pageNumber,
         handlePageNumber,
+        handleThemeChange,
         drawerOpen,
         setDrawerOpen,
       }}
     >
-      <MainLayout>
+      <MainLayout mode={mode}>
         <SidebarContainer>
           <Sidebar />
         </SidebarContainer>
@@ -60,20 +73,10 @@ function AppContainer() {
               <Courses helmetTitle={"نمونه کارهای من"} />
             </Page>
             <Page value={pageNumber} index={4}>
-              <Typography
-                variant="h4"
-                sx={{ textAlign: "center", color: "white" }}
-              >
-                نظرات دانشجویان
-              </Typography>
+              <Comments />
             </Page>
             <Page value={pageNumber} index={5}>
-              <Typography
-                variant="h4"
-                sx={{ textAlign: "center", color: "white" }}
-              >
-                ارتباط با من
-              </Typography>
+              <Contact helmetTitle={"ارتباط با من"} />
             </Page>
           </SwipeableViews>
         </PagesContainer>

@@ -1,7 +1,7 @@
 import { blue, red } from "@mui/material/colors";
 import { createTheme } from "@mui/material/styles";
 
-export const theme = createTheme({
+export const lightTheme = createTheme({
     palette: {
         mode: 'light',
         primary: {
@@ -35,4 +35,21 @@ export const theme = createTheme({
             ],
         },
     } */
+});
+
+export const darkTheme = createTheme({
+    palette: {
+        mode: 'dark',
+        primary: {
+            main: "#F57C00"
+        },
+        secondary: {
+            main: "#FF5722"
+        }
+    },
+    direction: "rtl",
+    typography: {
+        fontFamily: "Tanha, Roboto",
+    },
+
 });
